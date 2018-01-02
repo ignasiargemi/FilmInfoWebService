@@ -1,21 +1,3 @@
-// Build a table from purely client-side information.
-// To test the getTable function.
-
-function clientTable(displayRegion) {
-  var headings = ["Quarter", "Apples", "Oranges"];
-  var rows = [["Q1", randomSales(), randomSales()],
-              ["Q2", randomSales(), randomSales()],
-              ["Q3", randomSales(), randomSales()],
-              ["Q4", randomSales(), randomSales()]];
-  var table = getTable(headings, rows);
-  htmlInsert(displayRegion, table);
-}
-
-function randomSales() {
-  var sales = 1000 + (Math.round(Math.random() * 9000));
-  return("$" + sales);
-}
-
 // Insert all films
 // To a HTML file
 
@@ -84,11 +66,11 @@ function stringAllFilmTable(request, resultRegion) {
   var data = "format=string";
   ajaxPost(address, data, 
            function(request) { 
-             showStringCityInfo(request, resultRegion); 
+             showStringFilmInfo(request, resultRegion); 
            });
 }
 
-function showStringCityInfo(request, resultRegion) {
+function showStringFilmInfo(request, resultRegion) {
   if ((request.readyState == 4) &&
       (request.status == 200)) {
     var rawData = request.responseText;
@@ -104,7 +86,6 @@ function showStringCityInfo(request, resultRegion) {
 }
 
 function stringOneFilmTable(request, resultRegion) {
-	  alert["string-oneFilm"]
 	  var address = "show-film";
 	  var data = "filmID=" + getValue(request) + "&format=string";
 	  ajaxPost(address, data, 
@@ -114,6 +95,32 @@ function stringOneFilmTable(request, resultRegion) {
 	}
 
 	function showStringOneFilmInfo(request, resultRegion) {
+	  if ((request.readyState == 4) &&
+	      (request.status == 200)) {
+	    var rawData = request.responseText;
+	    var rowStrings = rawData.split(/[\n\r]+/);
+	    var headings = rowStrings[0].split("#");
+	    var rows = new Array(rowStrings.length-1);
+	    for(var i=1; i<rowStrings.length; i++) {
+	      rows[i-1] = rowStrings[i].split("#");
+	    }
+	    var table = getTable(headings, rows);
+	    htmlInsert(resultRegion, table);
+	  }
+	}
+	
+function stringADDFilmTable(name,year,director,duration,credits,review,resultRegion) {
+	var address = "add-film";
+	var data = "name=" + getValue(name) + "&year=" + getValue(year) + "&director=" 
+	+ getValue(director) + "&duration=" + getValue(duration) + "&credits=" + getValue(credits)
+	+ "&review=" + getValue(review) + "&format=string";
+	ajaxPost(address, data, 
+	           function(request) { 
+		  			showStringOneFilmAddedInfo(request, resultRegion); 
+	           });	
+}
+
+function showStringOneFilmAddedInfo(request, resultRegion) {
 	  if ((request.readyState == 4) &&
 	      (request.status == 200)) {
 	    var rawData = request.responseText;

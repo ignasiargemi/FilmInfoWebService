@@ -14,21 +14,8 @@
 
 
 <div align=center>
-<table border="5">
-  <tr><th class="title">Ajax: Handling Server Data</th></tr>
-</table>
-<p/>
-<fieldset>
-  <legend>Building HTML Table from Client-Side Data</legend>
-  <form action="#">
-   <input type="button" value="Build Sample Table"
-          onclick='clientTable("client-table")'/>
-  </form>
-  <p/>
-  <div id="client-table"></div>
-</fieldset>
-</div>
-<p/>
+
+
 <fieldset>
   <legend>Getting String Data from Server, Building HTML Table All films</legend>
   <form action="#">
@@ -41,10 +28,10 @@
    </select>
    <br/>
    <input type="button" value="Show Films"
-          onclick='stringAllFilmTable("city-type-3", "string-city-table")'/>
+          onclick='stringAllFilmTable("city-type-3", "string-allFilm-table")'/>
   </form>
   <p/>
-  <div id="string-city-table"></div>
+  <div id="string-allFilm-table"></div>
 </fieldset>
 <p/>
 
@@ -55,12 +42,35 @@
    <input type="text" name="ID" id="ID">
    <br/>
    <input type="button" value="Show Film"
-          onclick='stringOneFilmTable("ID", "string-one-city-table")'/>
+          onclick='stringOneFilmTable("ID", "string-one-film-table")'/>
   </form>
   <p/>
-  <div id="string-one-city-table"></div>
+  <div id="string-one-film-table"></div>
+</fieldset>
+
+<fieldset>
+  <legend>ADDING one film: Building HTML Table film added</legend>
+  <form action="#">
+   <label for="filmName">Film name:</label>
+   <input type="text" id="name">
+   <label for="filmYear">Film year:</label>
+   <input type="text" id="year">
+   <label for="filmDirector">Film director:</label>
+   <input type="text" id="director">
+   <label for="filmDuration">Film duration:</label>
+   <input type="text" id="duration">
+   <label for="filmCredits">Film credits:</label>
+   <input type="text" id="credits">
+   <label for="filmReview">Film review:</label>
+   <input type="text" id="review">
+   <br/>
+   <input type="button" value="Add Film"
+          onclick='stringADDFilmTable("name","year","director","duration","credits", "review", "string-one-addedfilm-table")'/>
+  </form>
+  <p/>
+  <div id="string-one-addedfilm-table"></div>
 </fieldset>
 <p/>
-
+</div>
 </body> 
 </html>
