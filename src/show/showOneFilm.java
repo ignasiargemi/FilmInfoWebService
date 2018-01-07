@@ -32,7 +32,7 @@ public class showOneFilm extends HttpServlet {
       outputPage = "/WEB-INF/results/films-xml.jsp";
     } else if ("json".equals(format)) {
       response.setContentType("application/json");
-      outputPage = "/WEB-INF/results/films-json.jsp";
+      outputPage = "/WEB-INF/results/oneFilm-json.jsp";
     } else {
       response.setContentType("text/plain");
       outputPage = "/WEB-INF/results/oneFilm-string.jsp";

@@ -17,16 +17,8 @@
 
 
 <fieldset>
-  <legend>Getting String Data from Server, Building HTML Table All films</legend>
+  <legend>Getting Data from Server, Building HTML Table of All films (50 limited)</legend>
   <form action="#">
-   <label for="city-type-3">City Type:</label>
-   <select id="city-type-3">
-     <option value="top-5-cities">Largest Five US Cities</option>
-     <option value="second-5-cities">Second Five US Cities</option>
-     <option value="cities-starting-with-s">US Cities Starting with 'S'</option>
-     <option value="superbowl-hosts">Recent Superbowl Hosts</option>
-   </select>
-   <br/>
    <input type="button" value="Show Films"
           onclick='stringAllFilmTable("city-type-3", "string-allFilm-table")'/>
   </form>
@@ -36,7 +28,7 @@
 <p/>
 
 <fieldset>
-  <legend>Getting String Data from Server, Building HTML Table One film</legend>
+  <legend>Getting Data from Server, Building HTML Table with One film</legend>
   <form action="#">
    <label for="filmID">Film ID:</label>
    <input type="text" name="ID" id="ID">
@@ -49,7 +41,7 @@
 </fieldset>
 
 <fieldset>
-  <legend>ADDING one film: Building HTML Table film added</legend>
+  <legend>ADDING one film: Building HTML Table with the new ID</legend>
   <form action="#">
    <label for="filmName">Film name:</label>
    <input type="text" id="name">
