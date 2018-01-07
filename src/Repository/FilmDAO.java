@@ -127,24 +127,21 @@ public class FilmDAO {
         else return false;
     }
 
-   public void addFilm(Film film) {
-	   //openConnection();
-	   try {
-		   int max = getMaxId();
-		   System.out.println("ID given to "+(max+1));
-		   openConnection();
-		   String insertSQL = "INSERT INTO films_proj VALUES (" + (max+1) + ",\""
-				   + film.getTitle() + "\"," +film.getYear() + ",\"" +film.getDirector()
-				   + "\"," +film.getDuration()+ ",\"" +film.getCredits()+ "\",\"" +film.getReview()+ "\")";
-		   //System.out.println(insertSQL);
-		   int rs1 = stmt.executeUpdate(insertSQL);
-		   // Retrieve the results
-
-
-		   stmt.close();
-		   closeConnection();
-	   } catch (SQLException se){System.out.println(se);}
-   }
+    public int addFilm(Film film) {
+    	int max = -2;
+ 	   try {
+ 		   max = getMaxId();
+ 		   openConnection();
+ 		   String insertSQL = "INSERT INTO films_proj VALUES (" + (max+1) + ",\""
+ 				   + film.getTitle() + "\"," +film.getYear() + ",\"" +film.getDirector()
+ 				   + "\"," +film.getDuration()+ ",\"" +film.getCredits()+ "\",\"" +film.getReview()+ "\")";
+ 		   int rs1 = stmt.executeUpdate(insertSQL);
+ 		   if (rs1 == 1) System.out.println("Given ID is "+(max+1));
+ 		   stmt.close();
+ 		   closeConnection();
+ 	   } catch (SQLException se){System.out.println(se);}
+ 	   return (max+1);
+    }
 
 	public void deleteFilmByID(int id) {
 		openConnection();
@@ -162,7 +159,7 @@ public class FilmDAO {
 		} catch (SQLException se){System.out.println(se);}
 	}
    
-   	private int getMaxId() {
+   	public int getMaxId() {
 		openConnection();
 		int max = 0;
 		// Create select statement and execute it
