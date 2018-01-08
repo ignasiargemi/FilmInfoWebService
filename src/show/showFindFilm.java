@@ -21,8 +21,6 @@ public class showFindFilm extends HttpServlet {
     System.out.println("ShowFilm");
     String filmTitle = request.getParameter("filmTitle");
     FilmDAO filmDAO = new FilmDAO();
-    //int ID = Integer.parseInt(filmID);
-    //Film film = filmDAO.getFilmByTitle(filmTitle);
     List<Film> films = filmDAO.getFilmByTitle(filmTitle);
     request.setAttribute("films", films);
     String format = request.getParameter("format");
