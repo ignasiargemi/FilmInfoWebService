@@ -82,8 +82,6 @@ public class FilmDAO {
    }
 
    public Film getFilmByID(int id){
-	   
-
 		oneFilm=null;
 	    // Create select statement and execute it
 		try{
@@ -105,6 +103,26 @@ public class FilmDAO {
 
 	   return oneFilm;
    }
+   
+   public ArrayList<Film> getFilmByTitle(String name){
+		ArrayList<Film> allFilms = new ArrayList<Film>();
+	    // Create select statement and execute it
+		try{
+			openConnection();
+		    String selectSQL = "select * from films_proj where title like \"%" + name + "%\""; 
+		    ResultSet rs1 = stmt.executeQuery(selectSQL);
+		    // Retrieve the results
+		    while(rs1.next()){
+		    	oneFilm = getNextFilm(rs1);
+		    	allFilms.add(oneFilm);
+		    }
+
+		    stmt.close();
+		    closeConnection();
+		} catch(SQLException se) { System.out.println(se); }
+
+	   return allFilms;
+  }
 
     private boolean IdExists(int id) {
         openConnection();

@@ -11,7 +11,7 @@ import Repository.FilmDAO;
 import java.util.*;
 
 @WebServlet("/show-film")
-public class showOneFilm extends HttpServlet {
+public class showFindFilm extends HttpServlet {
   @Override
   public void doGet(HttpServletRequest request,
                     HttpServletResponse response)
@@ -19,11 +19,11 @@ public class showOneFilm extends HttpServlet {
     response.setHeader("Cache-Control", "no-cache");
     response.setHeader("Pragma", "no-cache");
     System.out.println("ShowFilm");
-    String filmID = request.getParameter("filmID");
+    String filmTitle = request.getParameter("filmTitle");
     FilmDAO filmDAO = new FilmDAO();
-    int ID = Integer.parseInt(filmID);
-    Film film = filmDAO.getFilmByID(ID);
-    List<Film> films = new ArrayList<Film>(); films.add(film);
+    //int ID = Integer.parseInt(filmID);
+    //Film film = filmDAO.getFilmByTitle(filmTitle);
+    List<Film> films = filmDAO.getFilmByTitle(filmTitle);
     request.setAttribute("films", films);
     String format = request.getParameter("format");
     String outputPage;
@@ -32,10 +32,10 @@ public class showOneFilm extends HttpServlet {
       outputPage = "/WEB-INF/results/films-xml.jsp";
     } else if ("json".equals(format)) {
       response.setContentType("application/json");
-      outputPage = "/WEB-INF/results/oneFilm-json.jsp";
+      outputPage = "/WEB-INF/results/films-json.jsp";
     } else {
       response.setContentType("text/plain");
-      outputPage = "/WEB-INF/results/oneFilm-string.jsp";
+      outputPage = "/WEB-INF/results/films-string.jsp";
     }
     RequestDispatcher dispatcher =
       request.getRequestDispatcher(outputPage);

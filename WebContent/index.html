@@ -28,13 +28,13 @@
 <p/>
 
 <fieldset>
-  <legend>Getting Data from Server, Building HTML Table with One film</legend>
+  <legend>Getting Data from Server, Building HTML Table with films with the title asked</legend>
   <form action="#">
-   <label for="filmID">Film ID:</label>
-   <input type="text" name="ID" id="ID">
+   <label for="filmTitle">Film Title:</label>
+   <input type="text" name="title" id="title">
    <br/>
-   <input type="button" value="Show Film"
-          onclick='stringOneFilmTable("ID", "string-one-film-table")'/>
+   <input type="button" value="Show Film(s)"
+          onclick='stringOneFilmTable("title", "string-one-film-table")'/>
   </form>
   <p/>
   <div id="string-one-film-table"></div>
