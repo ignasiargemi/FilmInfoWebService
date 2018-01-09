@@ -28,12 +28,12 @@ public class showFindFilm extends HttpServlet {
     if ("xml".equals(format)) {
       response.setContentType("text/xml");
       outputPage = "/WEB-INF/results/films-xml.jsp";
-    } else if ("json".equals(format)) {
-      response.setContentType("application/json");
-      outputPage = "/WEB-INF/results/films-json.jsp";
-    } else {
+    } else if ("string".equals(format)) {
       response.setContentType("text/plain");
       outputPage = "/WEB-INF/results/films-string.jsp";
+    } else {
+	  response.setContentType("application/json");
+	  outputPage = "/WEB-INF/results/films-json.jsp";
     }
     RequestDispatcher dispatcher =
       request.getRequestDispatcher(outputPage);
