@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://localhost:8080/FilmInfoWebService/WSDLFile/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="WSDLFile" targetNamespace="http://localhost:8080/FilmInfoWebService/WSDLFile/">
+  <wsdl:message name="show-films">
+    <wsdl:part name="show-films" type="xsd:string"/>
+  </wsdl:message>
+  <wsdl:message name="show-film">
+    <wsdl:part name="show-film" type="xsd:string"/>
+  </wsdl:message>
+  <wsdl:message name="add-film">
+    <wsdl:part name="add-film" type="xsd:string"/>
+  </wsdl:message>
+</wsdl:definitions>
