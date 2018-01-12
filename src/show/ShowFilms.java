@@ -10,6 +10,9 @@ import Repository.FilmDAO;
 
 import java.util.*;
 
+/**
+ * Web Servlet to show all the films from the DB
+ */
 @WebServlet("/show-films")
 public class ShowFilms extends HttpServlet {
   @Override

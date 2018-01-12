@@ -10,10 +10,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement (name = "filmlist")
 @XmlAccessorType (XmlAccessType.FIELD)
 
+/**
+ * Assistant class to ease the data transfer between elements of the MVC
+ */
 public class FilmList {
-	public FilmList() {
-		
-	}
+	public FilmList() {}
 	
 	@XmlElement(name="film")	
 	private List<Film> films;
