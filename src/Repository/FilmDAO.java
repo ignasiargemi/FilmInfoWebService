@@ -86,7 +86,7 @@ public class FilmDAO {
 	}
 	
 	/**
-	 * This function returns an arraylist of the films searched with a certain filter
+	 * This function returns a Film object with a certain ID introduced by the USER
 	 */
 	public Film getFilmByID(int id){
 		oneFilm=null;
@@ -109,10 +109,10 @@ public class FilmDAO {
 		} catch(SQLException se) { System.out.println(se); }
 
 	   return oneFilm;
-   }
+	}
    
 	/**
-	 * This function returns a Film object with a certain ID introduced by the USER
+	 * This function returns an arraylist of the films searched with a certain filter
 	 */
 	public ArrayList<Film> getFilmByTitle(String name){
 		ArrayList<Film> allFilms = new ArrayList<Film>();
